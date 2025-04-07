@@ -11,16 +11,16 @@
 .ld-focus-content h1 {
     margin-left: 20% !important;
 }
-.topic-status-custom-style{
+.wdm-topic-status-custom-style{
 
     background: #fff !important;
 }
-.breadcrumbs-topic-custom-style{
+.wdm-breadcrumbs-topic-custom-style{
     background: #fff !important;
     margin-left: 20%;
     padding-left: 0px !important;
     text-transform: uppercase;
-    font-family: Merriweather;
+    font-family: "Merriweather";
     font-size: 14px;
     font-weight: 600;
 }
@@ -30,7 +30,7 @@
         margin-left: 5% !important;
         font-size: 24px;
     }
-    .breadcrumbs-topic-custom-style{
+    .wdm-breadcrumbs-topic-custom-style{
         margin-left: 5%;
     }
 }

@@ -235,9 +235,9 @@ switch ( $context ) {
 	case ( 'topic' ):
 		?>
 
-		<div class="ld-topic-status topic-status-custom-style ">
+		<div class="ld-topic-status wdm-topic-status-custom-style ">
 
-			<div class="ld-breadcrumbs breadcrumbs-topic-custom-style">
+			<div class="ld-breadcrumbs wdm-breadcrumbs-topic-custom-style">
 				<?php
 					$total_topics   = get_total_topics_in_course( $course_id );
 					$topic_position = get_topic_position_in_course( get_the_ID() );

@@ -48,6 +48,8 @@ if ( ! class_exists( 'Wdm_Learndash_Design_Upgrade' ) ) {
 				return WDM_LEARNDASH_GROUP_AUTOMATION_DIR . 'public/ld-templates/lesson-row.php';
 			} elseif ( 'modules/course-steps.php' === $template_name ) {
 				return WDM_LEARNDASH_GROUP_AUTOMATION_DIR . 'public/ld-templates/course-steps.php';
+			} elseif ( 'focus/sidebar.php' === $template_name ) {
+				return WDM_LEARNDASH_GROUP_AUTOMATION_DIR . 'public/ld-templates/sidebar.php';
 			}
 			return $template_filepath;
 		}

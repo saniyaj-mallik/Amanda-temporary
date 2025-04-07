@@ -24,7 +24,15 @@
     font-size: 14px;
     font-weight: 600;
 }
-
+.wdm-course-thumbnail {
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    height: 200px;
+}
+.wdm-hide-trigger-bg-above-image{
+    width:  0 !important;
+}
 @media (max-width: 768px) {
     .ld-focus-content h1 {
         margin-left: 5% !important;

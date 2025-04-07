@@ -17,8 +17,10 @@ global $course_pager_results;
 do_action( 'learndash-focus-sidebar-before', $course_id, $user_id ); ?>
 
 <div class="ld-focus-sidebar">
-	<div class="ld-course-navigation-heading  WDM-custom">
+	<div class="ld-course-navigation-heading  wdm-course-thumbnail"
+		style="background-image: url('<?php echo esc_url( plugin_dir_url( WDM_LEARNDASH_GROUP_AUTOMATION_DIR ) . 'wdm-learndash-group-automation/assets/media/EQ2-course-image-300x200.jpeg' ); ?>');">
 		<!-- course heading image here -->
+		
 		<?php
 		/**
 		 * Fires before the sidebar trigger wrapper in the focus template.
@@ -31,7 +33,7 @@ do_action( 'learndash-focus-sidebar-before', $course_id, $user_id ); ?>
 		do_action( 'learndash-focus-sidebar-trigger-wrapper-before', $course_id, $user_id );
 		?>
 
-		<span class="ld-focus-sidebar-trigger">
+		<span class="ld-focus-sidebar-trigger wdm-hide-trigger-bg-above-image">
 			<?php
 			/**
 			 * Fires before the sidebar trigger in the focus template.

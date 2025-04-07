@@ -1,0 +1,127 @@
+.wdm-ld-topic-header-img img {
+    height: 400px !important;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ld-focus-content {
+    padding: 5rem 0 !important;
+}
+
+.ld-focus-content h1 {
+    margin-left: 20% !important;
+}
+.learndash-wrapper .ld-breadcrumbs{
+    margin-left: 20% !important;
+    padding-left: 0px !important;
+}
+
+@media (max-width: 768px) {
+    .ld-focus-content h1 {
+        margin-left: 5% !important;
+        font-size: 24px;
+    }
+    .ld-breadcrumbs{
+        margin-left: 5% !important;
+    }
+}
+
+.wdm-ld-topic-heading h2.fl-heading,
+.wdm-ld-topic-heading h4.fl-heading {
+    margin-bottom: 0px !important;
+}
+
+.wdm-ld-topic-video .mejs-container .mejs-controls {
+    background: rgba(0, 0, 0, .67);
+    height: 60px;
+    align-items: center;
+}
+
+.wdm-ld-topic-video .mejs-container .mejs-controls .mejs-time {
+    height: 40px;
+}
+
+.wdm-ld-topic-video .mejs-container .mejs-controls .mejs-time span {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.wdm-ld-topic-list .fl-list-item-content-text p,
+.fl-module-pp-advanced-tabs.wdm-ld-topic-advanced-tab .pp-tabs-panel-content p {
+    font-family: 'Merriweather';
+    font-size: 17px;
+    word-spacing: 1.3px;
+}
+
+.fl-module-list.wdm-ld-topic-list .fl-list-item-content .fl-list-item-content-icon {
+    vertical-align: top;
+    /* Align list bullet point to the top of the container */
+}
+
+.ld-focus .ld-tab-content .fl-module-info-list.wdm-ld-topic-infolist .uabb-module-content ul.uabb-info-list-left {
+    padding-left: 0px;
+}
+
+.fl-module-info-list.wdm-ld-topic-infolist .uabb-info-list-content-wrapper.uabb-info-list-left {
+    display: flex;
+}
+
+.fl-module-pp-advanced-tabs.wdm-ld-topic-advanced-tab {
+    box-shadow: 0 0.4rem 1.2rem 0.2rem rgba(0, 0, 0, .05);
+}
+
+.learndash-wrapper:not(.ld-registration__outer-wrapper) .wdm-ld-topic-pdf-container a.wdm-ld-topic-pdf {
+    border-bottom: 1px solid #000000 !important;
+}
+
+.fl-module-pp-advanced-tabs.wdm-ld-topic-advanced-tab .pp-tabs-label:focus>.pp-tab-label-inner {
+    outline: none;
+}
+
+.fl-module-pp-advanced-tabs.wdm-ld-topic-advanced-tab .pp-tabs-horizontal .pp-tabs-label .pp-tab-label-flex {
+    justify-content: center;
+}
+
+.fl-module-pp-pullquote.wdm-ld-topic-pullquote h4.pp-pullquote-name {
+    color: #FFFFFF;
+}
+
+.pp-tooltipster-active p {
+    font-family: 'Merriweather';
+    font-size: 17px;
+    font-weight: 300;
+    margin-bottom: 0px;
+}
+
+.pp-tooltipster-active h4 {
+    font-family: 'Lato';
+    font-size: 20px;
+    color: #000000;
+}
+
+.pp-tooltipster-active span.pp-tour ul {
+    margin-top: 10px;
+}
+
+.fl-module-html.wdm-ld-topic-audio audio {
+    width: 100%;
+}
+
+.fl-module-pp-infolist.wdm-ld-topic-list-item .pp-infolist-wrap>.pp-infolist>ul.pp-list-items {
+    padding-left: 0px !important;
+    margin: 0px !important;
+    display: flex !important;
+}
+
+/*---------------------- LearnDash template styles --------------------------------------------*/
+.lionheart-ld-lesson-title-row {
+    display: flex;
+}
+
+.learndash-wrapper .ld-course-navigation .ld-lesson-item-preview .lionheart-ld-lesson-title-row .ld-lesson-title {
+    text-transform: uppercase;
+    font-family: 'Inter';
+    font-size: .70em;
+    font-weight: 700;
+    color: #000000;
+}

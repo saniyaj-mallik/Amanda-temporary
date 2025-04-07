@@ -1,0 +1,36 @@
+#wdm-lesson-content .uo-tincanny-content {
+    z-index: 5;
+}
+
+.wdm-shortcode-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wdm-shortcode-btn .complete-course-button {
+    padding: 12px 40px;
+    width: 75%;
+    border-radius: 4px;
+    border: 1px solid #264584;
+    font-family: Arimo, sans-serif;
+	font-size: 15px;
+	font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+	color: #DADAEA;
+}
+
+.wdm-open-course-btn a {
+	font-family: Arimo, sans-serif;
+	font-size: 15px !important;
+	font-weight: 700;
+	color: #DADAEA;
+	padding: 12px 40px;
+}
+
+.wdm-open-course-btn a:hover, 
+.wdm-shortcode-btn .complete-course-button:hover {
+	background-color: #009EAD !important;
+	border-color: #009EAD;
+}

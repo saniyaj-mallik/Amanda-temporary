@@ -11,8 +11,13 @@
 .ld-focus-content h1 {
     margin-left: 20% !important;
 }
-.learndash-wrapper .ld-breadcrumbs{
-    margin-left: 20% !important;
+.topic-status-custom-style{
+
+    background: #fff !important;
+}
+.breadcrumbs-topic-custom-style{
+    background: #fff !important;
+    margin-left: 20%;
     padding-left: 0px !important;
 }
 
@@ -21,8 +26,8 @@
         margin-left: 5% !important;
         font-size: 24px;
     }
-    .ld-breadcrumbs{
-        margin-left: 5% !important;
+    .breadcrumbs-topic-custom-style{
+        margin-left: 5%;
     }
 }
 

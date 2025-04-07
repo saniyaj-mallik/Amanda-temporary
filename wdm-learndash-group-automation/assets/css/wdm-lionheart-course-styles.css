@@ -19,6 +19,10 @@
     background: #fff !important;
     margin-left: 20%;
     padding-left: 0px !important;
+    text-transform: uppercase;
+    font-family: Merriweather;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 @media (max-width: 768px) {

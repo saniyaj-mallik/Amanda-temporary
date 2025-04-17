@@ -1,4 +1,12 @@
 <?php
+/**
+ * Lionheart Admin Settings
+ *
+ * Handles the admin settings page for Lionheart plugin.
+ *
+ * @package WDM_Learndash_Group_Automation
+ * @since 2.0.0
+ */
 
 /**
  * Class for admin settings.
@@ -20,6 +28,13 @@ class Wdm_Lionheart_Admin_Settings {
 	private $manual_payment_options;
 
 	/**
+	 * Email settings options value.
+	 *
+	 * @var array $email_settings
+	 */
+	private $email_settings;
+
+	/**
 	 * Initialize the class.
 	 *
 	 * @since 2.0.0
@@ -30,6 +45,9 @@ class Wdm_Lionheart_Admin_Settings {
 
 		$manual_payment_options       = get_option( 'wdm_lionheart_settings' );
 		$this->manual_payment_options = ! empty( $manual_payment_options ) ? $manual_payment_options : array();
+		
+		$email_settings       = get_option( 'wdm_lionheart_email_settings' );
+		$this->email_settings = ! empty( $email_settings ) ? $email_settings : array();
 	}
 
 	/**
@@ -53,7 +71,30 @@ class Wdm_Lionheart_Admin_Settings {
 		);
 		add_settings_field( 'wdm_user_roles_for_manual_payment', __( 'Select User Roles for Manual Payment', 'wdm-learndash-group-automation' ), array( $this, 'user_roles_for_manual_payment_callback' ), 'wdm_lionheart_settings', 'wdm_manual_payment_options' );
 
+		// Add Custom Email Template section.
+		add_settings_section(
+			'wdm_custom_email_template',
+			__( 'Shipment Tracking Email Template', 'wdm-learndash-group-automation' ),
+			array( $this, 'custom_email_template_section_callback' ),
+			'wdm_lionheart_email_settings'
+		);
+		add_settings_field(
+			'wdm_email_subject',
+			__( 'Email Subject', 'wdm-learndash-group-automation' ),
+			array( $this, 'email_subject_callback' ),
+			'wdm_lionheart_email_settings',
+			'wdm_custom_email_template'
+		);
+		add_settings_field(
+			'wdm_email_body',
+			__( 'Email Body', 'wdm-learndash-group-automation' ),
+			array( $this, 'email_body_callback' ),
+			'wdm_lionheart_email_settings',
+			'wdm_custom_email_template'
+		);
+
 		register_setting( 'wdm_lionheart_settings', 'wdm_lionheart_settings' );
+		register_setting( 'wdm_lionheart_email_settings', 'wdm_lionheart_email_settings' );
 	}
 
 	/**
@@ -64,15 +105,53 @@ class Wdm_Lionheart_Admin_Settings {
 	public function lionheart_settings_page_html() {
 		?>
 		<div class="wrap">
-			<h1><?php esc_html_e( 'Lionheart Custom Settings', ' wdm-learndash-group-automation' ); ?></h1>
-			<form method="post" action="options.php">
-				<?php
-				settings_fields( 'wdm_lionheart_settings' );
-				do_settings_sections( 'wdm_lionheart_settings' );
-				submit_button();
-				?>
-			</form>
+			<h1><?php esc_html_e( 'Lionheart Custom Settings', 'wdm-learndash-group-automation' ); ?></h1>
+			
+			<h2 class="nav-tab-wrapper">
+				<a href="#manual-payment-tab" class="nav-tab nav-tab-active"><?php esc_html_e( 'Manual Payment', 'wdm-learndash-group-automation' ); ?></a>
+				<a href="#email-settings-tab" class="nav-tab"><?php esc_html_e( 'Email Settings', 'wdm-learndash-group-automation' ); ?></a>
+			</h2>
+			
+			<div id="manual-payment-tab" class="tab-content">
+				<form method="post" action="options.php">
+					<?php
+					settings_fields( 'wdm_lionheart_settings' );
+					do_settings_sections( 'wdm_lionheart_settings' );
+					submit_button();
+					?>
+				</form>
+			</div>
+			
+			<div id="email-settings-tab" class="tab-content" style="display: none;">
+				<form method="post" action="options.php">
+					<?php
+					settings_fields( 'wdm_lionheart_email_settings' );
+					do_settings_sections( 'wdm_lionheart_email_settings' );
+					submit_button();
+					?>
+				</form>
+			</div>
 		</div>
+		
+		<script>
+		jQuery(document).ready(function($) {
+			// Tab functionality
+			$('.nav-tab-wrapper a').on('click', function(e) {
+				e.preventDefault();
+				var target = $(this).attr('href');
+				
+				// Hide all tab content
+				$('.tab-content').hide();
+				
+				// Show the target tab content
+				$(target).show();
+				
+				// Set active class
+				$('.nav-tab-wrapper a').removeClass('nav-tab-active');
+				$(this).addClass('nav-tab-active');
+			});
+		});
+		</script>
 		<?php
 	}
 
@@ -139,6 +218,47 @@ class Wdm_Lionheart_Admin_Settings {
 			<?php endforeach; ?>
 			</select>
 		<?php endif; ?>
+		<?php
+	}
+
+	/**
+	 * Callback function for rendering the "Custom Email Template" settings section.
+	 *
+	 * @return void Outputs the HTML for the settings section.
+	 */
+	public function custom_email_template_section_callback() {
+		echo '<p>' . esc_html__( 'Configure the email template that will be sent to users for shipment tracking.', 'wdm-learndash-group-automation' ) . '</p>';
+	}
+
+	/**
+	 * Callback function for rendering the email subject field.
+	 *
+	 * @return void Outputs the HTML for the text field.
+	 */
+	public function email_subject_callback() {
+		$email_subject = isset( $this->email_settings['wdm_email_subject'] ) ? $this->email_settings['wdm_email_subject'] : '';
+		?>
+		<input type="text" name="wdm_lionheart_email_settings[wdm_email_subject]" id="wdm_email_subject" value="<?php echo esc_attr( $email_subject ); ?>" class="regular-text">
+		<p class="description"><?php esc_html_e( 'Enter the subject for the email.', 'wdm-learndash-group-automation' ); ?></p>
+		<?php
+	}
+
+	/**
+	 * Callback function for rendering the email body field.
+	 *
+	 * @return void Outputs the HTML for the textarea field.
+	 */
+	public function email_body_callback() {
+		$email_body = isset( $this->email_settings['wdm_email_body'] ) ? $this->email_settings['wdm_email_body'] : '';
+		?>
+		<textarea name="wdm_lionheart_email_settings[wdm_email_body]" id="wdm_email_body" rows="10" cols="50" class="large-text"><?php echo esc_textarea( $email_body ); ?></textarea>
+		<p class="description">
+			<?php esc_html_e( 'Enter the body content for the email. You can use the following variables:', 'wdm-learndash-group-automation' ); ?>
+			<br>
+			<code>{first_name}</code> - <?php esc_html_e( 'Customer\'s first name', 'wdm-learndash-group-automation' ); ?><br>
+			<code>{last_name}</code> - <?php esc_html_e( 'Customer\'s last name', 'wdm-learndash-group-automation' ); ?><br>
+			<code>{order_id}</code> - <?php esc_html_e( 'Order ID', 'wdm-learndash-group-automation' ); ?>
+		</p>
 		<?php
 	}
 

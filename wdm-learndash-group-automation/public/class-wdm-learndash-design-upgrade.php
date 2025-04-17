@@ -44,12 +44,16 @@ if ( ! class_exists( 'Wdm_Learndash_Design_Upgrade' ) ) {
 		public function wdm_update_learndash_templates( $template_filepath, $template_name, $args ) {
 			if ( 'modules/infobar.php' === $template_name && 'topic' === $args['context'] ) {
 				return WDM_LEARNDASH_GROUP_AUTOMATION_DIR . 'public/ld-templates/infobar.php';
+			} elseif ( 'modules/infobar.php' === $template_name && 'quiz' === $args['context'] ) {
+				return WDM_LEARNDASH_GROUP_AUTOMATION_DIR . 'public/ld-templates/infobar.php';
 			} elseif ( 'widgets/navigation/lesson-row.php' === $template_name ) {
 				return WDM_LEARNDASH_GROUP_AUTOMATION_DIR . 'public/ld-templates/lesson-row.php';
 			} elseif ( 'modules/course-steps.php' === $template_name ) {
 				return WDM_LEARNDASH_GROUP_AUTOMATION_DIR . 'public/ld-templates/course-steps.php';
 			} elseif ( 'focus/sidebar.php' === $template_name ) {
 				return WDM_LEARNDASH_GROUP_AUTOMATION_DIR . 'public/ld-templates/sidebar.php';
+			} elseif ( 'modules/progress.php' === $template_name ) {
+				return WDM_LEARNDASH_GROUP_AUTOMATION_DIR . 'public/ld-templates/progress.php';
 			}
 			return $template_filepath;
 		}

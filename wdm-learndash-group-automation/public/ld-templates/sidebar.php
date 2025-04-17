@@ -18,7 +18,7 @@ do_action( 'learndash-focus-sidebar-before', $course_id, $user_id ); ?>
 
 <div class="ld-focus-sidebar">
 	<div class="ld-course-navigation-heading  wdm-course-thumbnail"
-		style="background-image: url('<?php echo esc_url( plugin_dir_url( WDM_LEARNDASH_GROUP_AUTOMATION_DIR ) . 'wdm-learndash-group-automation/assets/media/EQ2-course-image-300x200.jpeg' ); ?>');">
+		style="background-image: url('<?php echo esc_url( WDM_LEARNDASH_GROUP_AUTOMATION_PLUGIN_URL . '/assets/media/EQ2-course-image-300x200.jpeg' ); ?>');">
 		<!-- course heading image here -->
 		
 		<?php
@@ -84,10 +84,10 @@ do_action( 'learndash-focus-sidebar-before', $course_id, $user_id ); ?>
 		?>
 
 		<h3>
-			<a href="<?php echo esc_url( get_the_permalink( $course_id ) ); ?>" id="ld-focus-mode-course-heading">
+			<!-- <a href="<?php echo esc_url( get_the_permalink( $course_id ) ); ?>" id="ld-focus-mode-course-heading"> -->
 				<span class="ld-icon ld-icon-content"></span>
 				<?php echo esc_html( get_the_title( $course_id ) ); ?>
-			</a>
+			<!-- </a> -->
 		</h3>
 		<?php
 		/**

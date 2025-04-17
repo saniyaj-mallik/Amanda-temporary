@@ -270,7 +270,7 @@ switch ( $context ) {
 			?>
 			<div class="ld-quiz-status">
 				<?php if ( ! empty( $course_id ) ) { ?>
-				<div class="ld-breadcrumbs">
+				<div class="ld-breadcrumbs wdm-custom-quiz-status">
 					<?php
 					learndash_get_template_part(
 						'modules/breadcrumbs.php',

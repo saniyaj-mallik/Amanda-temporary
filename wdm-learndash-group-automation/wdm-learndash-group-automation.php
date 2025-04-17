@@ -172,6 +172,7 @@ add_filter( 'fl_builder_render_module_html_content', 'wdm_show_hide_nav_menu', 1
  * @return string The modified HTML content of the module.
  */
 function wdm_show_hide_nav_menu( $content, $type, $settings, $module ) {
+	$user = wp_get_current_user();
 	if ( 'button' === $type && 'EQ2 Community Board' === $settings->text ) {
 		$user_id  = get_current_user_id();
 		$group_id = '';
@@ -180,7 +181,13 @@ function wdm_show_hide_nav_menu( $content, $type, $settings, $module ) {
 			$group_id = absint( WPF()->member->get_groupid( $user_id ) );
 		}
 
-		if ( current_user_can( 'manage_options' ) || ( ! empty( $group_id ) && 7 === $group_id ) ) {
+		if ( current_user_can( 'manage_options' ) || ( ! empty( $group_id ) && 6 === $group_id ) ) {
+			return $content;
+		}
+		return '';
+	} elseif ( 'button' === $type && 'Group Management' === $settings->text ) {
+		$user = wp_get_current_user();
+		if ( current_user_can( 'manage_options' ) || ( ! empty( $user ) && in_array( 'group_leader', $user->roles ) ) ) {
 			return $content;
 		}
 		return '';
